@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by zn* on 2018/9/27
  */
 @RestController
-@Api(value = "LogBack测试")
+@Api(tags = "LogBack测试")
 @RequestMapping("/logback")
 @Slf4j
 public class LogbackTestController {

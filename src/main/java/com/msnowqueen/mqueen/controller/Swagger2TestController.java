@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by zn* on 2018/9/27
  */
 @RestController//接口注解
-@Api(value = "用户接口", tags = {"testApi"})//接口简要标注，对中文的支持不太好
+@Api(value = "用户接口", tags = {"Swagger2测试"})//接口简要标注，对中文的支持不太好
 @RequestMapping(value = "/swagger")//接口基本路径
 public class Swagger2TestController {
 
