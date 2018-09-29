@@ -5,3 +5,17 @@ spring:
     url: jdbc:mysql://localhost:3306/mqueen?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&useSSL=false
     username: zhou
     password: zhou630415
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 1
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 500
+        min-idle: 0
+    timeout: 5000
+  thymeleaf:
+    cache: true

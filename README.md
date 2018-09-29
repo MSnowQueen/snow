@@ -66,15 +66,68 @@
         原因: 发现validationQuery没有自动注入, 查资料发现, springboot1.4 取消了spring.datasource.type参数. 
             需要手动声明 datasource bean.
 
-**三. Spring boot 整合 Druid**
+**四. Spring boot 整合 Druid**
 
     1. 在pom中添加依赖
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${com.alibaba.version}</version>
+        </dependency>
     2. 在配置文件application.yml中添加配置信息
+        druid:
+                # 配置测试查询语句
+              validationQuery: SELECT 1 FROM DUAL
+                # 初始化大小，最小，最大
+              initialSize: 10
+              minIdle: 10
+              maxActive: 200
+                # 配置一个连接在池中最小生存的时间，单位是毫秒
+              minEvictableIdleTimeMillis: 180000
+              testOnBorrow: false
+              testWhileIdle: true
+              removeAbandoned: true
+              removeAbandonedTimeout: 1800
+              logAbandoned: true
+                # 打开PSCache，并且指定每个连接上PSCache的大小
+              poolPreparedStatements: false
+              maxOpenPreparedStatements: 100
+                # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+                # filters: stat,wall,log4j
+                # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+              connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     3. 添加DruidConfiguration类配置进行页面的监控
 
-**四. Spring boot 整合 generator**
+**五. Spring boot 整合 AOP**
 
-**五. Spring boot 整合 邮件的发送**
+    1. 在pom中添加依赖
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+    2. 之后就可以定义一个切面类, 在里面定义需要进行打印日志的操作
+        com.msnowqueen.mqueen.config.WebLogAspect
+
+**六. Spring boot 整合 thymeleaf**
+
+    1. 在pom中添加依赖
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+    2. 如果想对thymeleaf进行参数的自定义, 可以在application.yml中进行修改
+
+**六. Spring boot 整合 统一异常返回**
+
+    1. 使用@ControllerAdvice进行统一异常的接收管理
+    2. 使用@ExceptionHandler定义接收到的异常, 对其进行管理, 在内部实现具体的流程
+    3. 可以自定义配置异常的处理
+
+**五. Spring boot 整合 generator 和通用 mapper**
+
+**六. Spring boot 整合 邮件的发送**
+
+
 
 
 
