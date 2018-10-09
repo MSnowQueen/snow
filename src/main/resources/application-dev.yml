@@ -19,17 +19,3 @@ spring:
     timeout: 0
   thymeleaf:
     cache: false
-    encoding: UTF-8
-    enabled: true
-    prefix: classpath:/templates/
-  velocity:
-    resource-loader-path: classpath:/templates/
-    charset: UTF-8
-  mail:
-    host: smtp.163.com
-    username: zhounan328@163.com
-    password: zhounan328love
-    properties:
-      mail.smtp.auth: true
-      mail.smtp.starttls.enable: true
-      mail.smtp.starttls.required: true

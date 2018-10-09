@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created by zn* on 2018/9/28
  */
-@Mapper
+@Component
 public interface MUserMapper {
 
     @Insert(" INSERT INTO muser(muser_name, muser_createtime) " +
