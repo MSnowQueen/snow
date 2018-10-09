@@ -122,10 +122,35 @@
     1. 使用@ControllerAdvice进行统一异常的接收管理
     2. 使用@ExceptionHandler定义接收到的异常, 对其进行管理, 在内部实现具体的流程
     3. 可以自定义配置异常的处理
+    
+**七. Spring boot 整合 定时器**
+
+    1. 在启动类中添加@EnableScheduling注解
+    2. 之后就可以根据@Scheduled注解来进行定时任务
+        可以使用fixedRate和cron来定义时间
+        
+**八. Spring boot 整合 Spring Security**  
+
+    1. 简单的整合
+    2. Spring Security是权限管理工具
+    3. 在pom中添加依赖
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+    4. 在WebSecurityConfig配置类中进行相应的配置
+    
+    5. 会出现下面的异常信息:
+        java.lang.IllegalArgumentException: There is no PasswordEncoder mapped for the id "null"
+        
+        解决方案: 自定义一个MyPasswordEncoder(编码器), 在WebSecurityConfig中使用自定义的编码器在内存中
+                    存储用户信息.
 
 **五. Spring boot 整合 generator 和通用 mapper**
 
 **六. Spring boot 整合 邮件的发送**
+
+
 
 
 

@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>MQUEEN</title>
+    <title>hello spring security</title>
     <style>
         body {
             font-size: 14px;
@@ -15,33 +15,21 @@
             margin: 200px auto;
             width: 510px;
         }
-
-        a {
-            color: #808080;
-            text-decoration: none;
-        }
     </style>
 </head>
 <body>
-<div id="all">
-    <div>
+    <div id="all">
         <div>
-            <h1>WELCOME TO MQUEEN</h1>
+            <h1>hello spring security</h1><br><br><br>
         </div>
         <div>
-            <h1 th:text="${host}">This is my website.</h1>
-        </div>
-    </div>
-    <div>
-        <div>
-            <h1>这里是Spring Security时间</h1>
+            <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
         </div>
         <div>
-            <p>
-                <a th:href="@{/hello}">来点我呀</a>
-            </p>
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="注销"/>
+            </form>
         </div>
     </div>
-</div>
 </body>
 </html>
