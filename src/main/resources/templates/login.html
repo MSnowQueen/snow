@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>MQUEEN</title>
+    <title>login</title>
     <style>
         body {
             font-size: 14px;
@@ -15,32 +15,22 @@
             margin: 200px auto;
             width: 510px;
         }
-
-        a {
-            color: #808080;
-            text-decoration: none;
-        }
     </style>
 </head>
 <body>
 <div id="all">
-    <div>
-        <div>
-            <h1>WELCOME TO MQUEEN</h1>
-        </div>
-        <div>
-            <h1 th:text="${host}">This is my website.</h1>
-        </div>
+    <div th:if="${param.error}">
+        用户名或密码错误
+    </div>
+    <div th:if="${param.logout}">
+        您已注销成功
     </div>
     <div>
-        <div>
-            <h1>这里是Spring Security时间</h1>
-        </div>
-        <div>
-            <p>
-                <a th:href="@{/hello}">来点我呀</a>
-            </p>
-        </div>
+        <form th:action="@{/login}" method="post">
+            <div><label> 用户名 : <input type="text" name="username"/></label></div>
+            <div><label> 密&nbsp&nbsp&nbsp码 : <input type="password" name="password" /></label></div>
+            <div><input type="submit" value="登录"></div>
+        </form>
     </div>
 </div>
 </body>

@@ -17,4 +17,19 @@ public class ThymeleafTestController {
         // return模板文件的名称，对应src/main/resources/templates/index.html
         return "index";
     }
+
+    @RequestMapping("/hello")
+    public String hello(){
+        return "hello";
+    }
+
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
+
+    @RequestMapping("/logout")
+    public String logout(){
+        return "logout";
+    }
 }
